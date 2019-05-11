@@ -1,28 +1,29 @@
-.App {
-  text-align: center;
-}
+.my-section{
+  text-align: center
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
+.my-section table{
+  width: 800px;
+  margin: 0 auto;
+}
+.my-section table img{
+  display: block;
+  height: 200px;
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+}
+.my-section table tr{
+  box-shadow: 0px 0px 20px 0px rgba(12, 5, 5, 0.1);
+
+}
+.filter-buttons{
+ margin-bottom: 60px
+}
+.my-section table button{
+  background-color: red;
   color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  /* box-shadow: 0px 0px 20px 0px rgba(12, 5, 5, 0.2) */
 }
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
