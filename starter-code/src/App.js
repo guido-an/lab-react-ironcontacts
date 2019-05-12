@@ -11,7 +11,10 @@ class App extends Component {
   getRandomActor = () => {
     // add random actor
     let randomActor = contacts[Math.floor(Math.random() * contacts.length)];
-    contacts: this.state.contacts.push(randomActor);
+    if (!this.state.contacts.includes(randomActor)) {
+      contacts: this.state.contacts.push(randomActor);
+    }
+
     this.setState({});
   };
 
@@ -35,20 +38,19 @@ class App extends Component {
     });
   };
 
-  removeActor = (index) => {
-
-   let contactMinusOne = this.state.contacts
-   contactMinusOne.splice(index, 1 )
-
+  removeActor = index => {
+    let contactMinusOne = this.state.contacts;
+    contactMinusOne.splice(index, 1);
     this.setState({
       contacts: contactMinusOne
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <section className="my-section">
         <h1>IronContacts</h1>
+        <p>Totals contacts displayed: {this.state.contacts.length}</p>
         <div className="filter-buttons">
           <button onClick={this.getRandomActor}>Add random contact</button>
           <button onClick={this.filterByName}>Sort by name</button>
@@ -66,25 +68,19 @@ class App extends Component {
           </thead>
           <tbody>
             {this.state.contacts.map((actor, index) => (
-
               <tr>
-              <td>
-                
-                 <img src={actor.pictureUrl} />
-               
-              </td>
-              <td>
-                {actor.name}
-              </td>
-              <td>
-                {actor.popularity}
-              </td>
-              <td>
-                <button onClick={() => this.removeActor(index)}>Delete</button>
-              </td>
-            </tr>
+                <td>
+                  <img src={actor.pictureUrl} />
+                </td>
+                <td>{actor.name}</td>
+                <td>{actor.popularity}</td>
+                <td>
+                  <button onClick={() => this.removeActor(index)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
             ))}
-            
           </tbody>
         </table>
       </section>
@@ -92,7 +88,4 @@ class App extends Component {
   }
 }
 
-
-
 export default App;
-
